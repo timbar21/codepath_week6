@@ -1,0 +1,6 @@
+framework module Pods_week_6_instaparse {
+  umbrella header "Pods-week_6_instaparse-umbrella.h"
+
+  export *
+  module * { export * }
+}
