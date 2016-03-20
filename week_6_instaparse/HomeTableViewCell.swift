@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class TableViewCell: UITableViewCell {
+class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!

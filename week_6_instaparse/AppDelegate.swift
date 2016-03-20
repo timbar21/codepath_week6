@@ -1,4 +1,4 @@
-//
+ //
 //  AppDelegate.swift
 //  week_6_instaparse
 //
@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -25,6 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "http://frozen-shelf-36011.herokuapp.com/parse"
             })
         )
+        
+        let currentUser = PFUser.currentUser()
+        // check if user is logged in.
+        if currentUser != nil {
+            print("Current user detected")
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
+            window?.rootViewController = viewController
+            window?.makeKeyAndVisible()
+        } else {
+            print("no user found")
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+            // Make the vc the root view controller
+            window?.rootViewController = viewController
+            window?.makeKeyAndVisible()
+        }
         
         return true
     }
